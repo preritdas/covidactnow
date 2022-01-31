@@ -1,4 +1,4 @@
-import requests
+import requests 
 
 # As CovidActNow's API is a REST API, queries are stored as URLs.
 
