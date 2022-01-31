@@ -1,8 +1,10 @@
 # Covid Act Now Database Wrapper
 
-This package is an extremely bare-bones wrapper around Covid Act Now's database of COVID-19 related information. 
+This package is an extremely bare-bones wrapper around Covid Act Now's database of COVID-19 related information. View the GitHub repository [here](https://github.com/preritdas/covidactnow), and the original post page [here](https://covidinfo.preritdas.com). 
 
 Usage is simple. Install the package with `pip install covidactnow`.
+
+Instantiate a user object with your API key as an argument. You can easily generate an API key [here](https://covidactnow.org/data-api).
 
 ```python
 import covidactnow
@@ -20,7 +22,6 @@ This will result (with different data, of course):
 washingtonInfectionRate = 1.16
 massachussettsVaxRate = 76.3
 ```
-An API key can be generated easily [here](https://covidactnow.org/data-api).
 
 ----
-For more information on how the wrapper works, read this [page](https://covidinfo.preritdas.com). Note that this version has been updated to get data from within a `User` class allowing individual API keys to be used (as opposed to defining a state as an object and defining statistics as object attributes).
+For more information on how the wrapper works, particularly how it was redesigned to be package-friendly, read the "Updated for Distribution" section of this [page](https://covidinfo.preritdas.com). Note that this version has been updated to get data from within a `User` class allowing individual API keys to be used (as opposed to defining a state as an object and defining statistics as object attributes).
