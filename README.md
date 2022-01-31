@@ -4,7 +4,7 @@ This package is an extremely bare-bones wrapper around Covid Act Now's database 
 
 Usage is simple. Install the package with `pip install covidactnow`.
 
-```
+```python
 import covidactnow
 
 api = covidactnow.User(api_key = 'yourapikey')
