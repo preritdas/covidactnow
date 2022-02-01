@@ -1,6 +1,6 @@
 # Covid Act Now Database Wrapper
 
-This package is an extremely bare-bones wrapper around Covid Act Now's database of COVID-19 related information. View the GitHub repository [here](https://github.com/preritdas/covidactnow), and the original post page [here](https://covidinfo.preritdas.com). 
+This package is an extremely bare-bones wrapper around Covid Act Now's database of COVID-19 related information. View the PyPi project [here](https://pypi.org/project/covidactnow/), and the original post page [here](https://covidinfo.preritdas.com). 
 
 Usage is simple. Install the package with `pip install covidactnow`.
 
