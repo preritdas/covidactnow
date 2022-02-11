@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
-VERSION = '1.1.50'
+VERSION = '1.1.61'
 DESCRIPTION = 'A wrapper allowing users to get specific state-based COVID statistics from the Covid Act Now database.'
 
-def getReadMe():
+def get_read_me():
     with open('README.md', 'r') as f:
         return f.read()
 
@@ -16,7 +16,7 @@ setup(
     author="Prerit Das",
     author_email="<preritdas@gmail.com>",
     description=DESCRIPTION,
-    long_description = getReadMe(),
+    long_description = get_read_me(),
     long_description_content_type = "text/markdown",
     packages=find_packages(),
     install_requires=['requests==2.27.1'],

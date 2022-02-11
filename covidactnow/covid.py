@@ -2,57 +2,71 @@ import requests
 
 # As CovidActNow's API is a REST API, queries are stored as URLs.
 
-class DeprecatedUser:
+class User:
     def __init__(self, api_key):
         self.api_key = api_key
 
-def queryUrl(state):
-    return f"http://api.covidactnow.org/v2/state/{state}.json?apiKey=" # + api_key
+    def queryUrl(self, state):
+        return f"http://api.covidactnow.org/v2/state/{state}.json?apiKey=" + self.api_key
 
-# Creating a covidInfo object class which contains COVID-related information attributes.
-
-class DeprecatedcovidInfo:
-    def __init__(self, state):
+    def infRate(self, state):
         # Infection Rate
         try:
-            self.infRate = float(requests.get(queryUrl(state)).json()['metrics']['infectionRate'])
-        except:
-            self.infRate = "NaN"
+            return float(requests.get(self.queryUrl(state)).json()['metrics']['infectionRate'])
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
         
+    def posRate(self, state):    
         # Positive Rate
         try:
-            self.posRate = round(100*float(requests.get(queryUrl(state)).json()['metrics']['testPositivityRatio']), 2)
-        except:
-            self.posRate = "NaN"
-        
+            return round(100*float(requests.get(self.queryUrl(state)).json()['metrics']['testPositivityRatio']), 2)
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
+    
+    def vaxRate(self, state):
         # Vax Rate
         try:
-            self.vaxRate = round(100*float(requests.get(queryUrl(state)).json()['metrics']['vaccinationsCompletedRatio']), 2)
-        except:
-            self.vaxRate = "NaN"
-        
+            return round(100*float(requests.get(self.queryUrl(state)).json()['metrics']['vaccinationsCompletedRatio']), 2)
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
+    
+    def freeBedPercentage(self, state):
         # Free Bed Percentage
         try:
-            self.freeBedPercentage = round(100*float(requests.get(queryUrl(state)).json()['actuals']['hospitalBeds']['currentUsageTotal'])/\
-                float(requests.get(queryUrl(state)).json()['actuals']['hospitalBeds']['capacity']), 2)
-        except:
-            self.freeBedPercentage = "NaN"
+            return round(100*float(requests.get(self.queryUrl(state)).json()['actuals']['hospitalBeds']['currentUsageTotal'])/\
+                float(requests.get(self.queryUrl(state)).json()['actuals']['hospitalBeds']['capacity']), 2)
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
         
-        # New Cases
+    def newCases(self, state):
         try:
-            self.newCases = int(requests.get(queryUrl(state)).json()['actuals']['newCases'])
-        except:
-            self.newCases = "NaN"
+            return int(requests.get(self.queryUrl(state)).json()['actuals']['newCases'])
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
 
-        # New Deaths
+    def newDeaths(self, state):
         try:
-            self.newDeaths = int(requests.get(queryUrl(state)).json()['actuals']['newDeaths'])
-        except:
-            self.newDeaths = "NaN"
+            return int(requests.get(self.queryUrl(state)).json()['actuals']['newDeaths'])
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
         
-        # Covid Bed Percentage
+    def covidBedPercentage(self, state):
         try:
-            self.covidBedPercentage = round(100*float(requests.get(queryUrl(state)).json()['actuals']['hospitalBeds']['currentUsageCovid'])/\
-                float(requests.get(queryUrl(state)).json()['actuals']['hospitalBeds']['capacity']), 2)
-        except:
-            self.covidBedPercentage = "NaN"
+            return round(100*float(requests.get(self.queryUrl(state)).json()['actuals']['hospitalBeds']['currentUsageCovid'])/\
+                float(requests.get(self.queryUrl(state)).json()['actuals']['hospitalBeds']['capacity']), 2)
+        except TypeError:
+            return "NaN"
+        except Exception as e:
+            print(f"An error occured in data collection: {e}")
