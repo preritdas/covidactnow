@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
-VERSION = '1.1.61'
+VERSION = '1.1.70'
 DESCRIPTION = 'A wrapper allowing users to get specific state-based COVID statistics from the Covid Act Now database.'
 
 def get_read_me():
